@@ -1,24 +1,20 @@
-<h2>Create New Codecamp</h2>
-<form>
-  <ul>
-    <li>
-      <label for="cc_title">Codecamp Title</label>
-      <input type="text" name="cc_title" required>
-    </li>
-    <li>
-      <label for="cc_date">Date of Event</label>
-      <input type="date" name="cc_date" required>
-    </li>
-    <li>
-      <label for="cc_venue">Venue</label>
-      <input type="text" name="cc_venue" required>
-    </li>
-    <li>
-      <label for="cc_num_places">Number of Places</label>
-      <input type="number" name="cc_num_places" required>
-    </li>
-    <li>
-      <button>Create Event</button>
-    </li>
-  </ul>
+<h3>Add New Codecamp</h3>
+<form class="formwidth" (ngSubmit)="onSubmit()" #myForm="ngForm">
+  <mat-form-field class="example-full-width">
+    <input required matInput placeholder="Title" id="ccTitle" [(ngModel)]="event.ccTitle" name="ccTitle">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input required matInput placeholder="Venue" id="ccVenue" [(ngModel)]="event.ccVenue" name="ccVenue">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input type="date" required matInput placeholder="Date" id="ccDate" [(ngModel)]="event.ccDate" name="ccDate">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input type="number" required matInput placeholder="Max places" id="ccMaxplaces" [(ngModel)]="event.ccMaxplaces"
+      name="ccMaxplaces">
+  </mat-form-field>
+  <button mat-raised color="primary">Create Codecamp</button>
 </form>
+
+
+
