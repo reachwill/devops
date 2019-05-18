@@ -1,13 +1,14 @@
-<div class="app-content">
+<div class="app-content" [class.admin]="admin">
 
+    <mat-slide-toggle (change)="toggleAdmin(adminToggle)" #adminToggle>Is Admin</mat-slide-toggle>
 
-
-  <mat-card>
+  <mat-card *ngIf="codecampService.admin" >
     <button mat-button [matMenuTriggerFor]="menu">Menu</button>
     <mat-menu #menu="matMenu">
       <a routerLink="/events" mat-menu-item>Events</a>
       <a routerLink="/create" mat-menu-item>Create Codecamp Event</a>
     </mat-menu>
+    
   </mat-card>
 
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import {CodecampService} from './services/codecamp.service';
+ 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'codecamp';
+  admin = true;
+  constructor(private codecampService: CodecampService) {}
+  toggleAdmin(toggle) {
+    this.codecampService.admin = toggle.checked;
+  }
 }

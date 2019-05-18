@@ -11,6 +11,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { EventlistComponent } from './eventlist/eventlist.component';
 import { EditCodecampEventComponent } from './edit-codecamp-event/edit-codecamp-event.component';
@@ -33,6 +34,7 @@ import { EditCodecampEventComponent } from './edit-codecamp-event/edit-codecamp-
     MatIconModule,
     MatSnackBarModule,
     MatExpansionModule,
+    MatSlideToggleModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule

@@ -8,6 +8,8 @@ import { Observable, of } from 'rxjs';
 })
 export class CodecampService {
 
+  admin = false;
+
   constructor() { }
 
   getEvents(): Observable<any> {

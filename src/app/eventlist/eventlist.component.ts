@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CodecampService } from '../services/codecamp.service';
 import { CodecampEvent } from '../event';
 
@@ -9,6 +9,9 @@ import { CodecampEvent } from '../event';
 })
 export class EventlistComponent implements OnInit {
   codecampEvents: CodecampEvent[];
+
+  @Input()
+  admin: boolean;
 
   constructor(private codecampService: CodecampService) {}
 
