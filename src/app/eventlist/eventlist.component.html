@@ -1,0 +1,35 @@
+<h3>Scheduled Codecamps</h3>
+<!-- <ul>
+  <li *ngFor="let event of codecampEvents">
+    {{event.ccTitle}}
+  </li>
+</ul> -->
+
+<!-- <mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let event of codecampEvents">
+    <mat-icon color="warn">folder</mat-icon> {{event.ccTitle}}
+  </mat-list-item>
+</mat-list> -->
+
+
+<mat-accordion>
+
+  <mat-expansion-panel *ngFor="let event of codecampEvents">
+    <mat-expansion-panel-header>
+      {{event.ccTitle}}
+    </mat-expansion-panel-header>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <mat-icon color="warn">location_on</mat-icon> <span class="align-right">{{event.ccVenue}}</span>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon color="warn">date_range</mat-icon> <span class="align-right">{{event.ccDate | date:'mediumDate'}}</span>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon color="warn">people</mat-icon> <span class="align-right">{{event.ccMaxplaces}}</span>
+      </mat-list-item>
+    </mat-list>
+
+  </mat-expansion-panel>
+
+</mat-accordion>

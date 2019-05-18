@@ -1,0 +1,9 @@
+.align-right{
+    display: inline-block;
+    width:100%;
+    text-align: right;
+}
+
+.mat-list-item:nth-child(odd){
+    background-color: #efefef;
+}

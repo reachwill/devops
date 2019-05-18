@@ -3,3 +3,8 @@
 .example-full-width {
     width: 100%;
   }
+
+
+body{
+    font-family:verdana, arial;
+}

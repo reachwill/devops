@@ -13,8 +13,12 @@
     <input type="number" required matInput placeholder="Max places" id="ccMaxplaces" [(ngModel)]="event.ccMaxplaces"
       name="ccMaxplaces">
   </mat-form-field>
-  <button mat-raised color="primary">Create Codecamp</button>
+  <button mat-flat-button	 color="warn">Create Codecamp</button>
 </form>
+
+<!-- <mat-list role="list" class="small-list">
+  <mat-list-item role="listitem" *ngFor="let event of codecampEvents"> {{event.ccTitle}}</mat-list-item>
+</mat-list> -->
 
 
 
