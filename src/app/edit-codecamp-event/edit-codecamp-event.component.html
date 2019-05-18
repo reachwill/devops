@@ -1,0 +1,26 @@
+
+    <h3>Edit <i class="red">{{event.ccTitle}}</i> Codecamp</h3>
+    <form class="formwidth" (ngSubmit)="onSubmit()" #myForm="ngForm">
+      <mat-form-field class="example-full-width">
+       
+        <input required matInput placeholder="Title" id="ccTitle" [(ngModel)]="event.ccTitle" name="ccTitle">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          
+        <input required matInput placeholder="Venue" id="ccVenue" [(ngModel)]="event.ccVenue" name="ccVenue">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+         
+        <input type="date" required matInput placeholder="Date" id="ccDate" [(ngModel)]="event.ccDate" name="ccDate">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          
+        <input type="number" required matInput placeholder="Max places" id="ccMaxplaces" [(ngModel)]="event.ccMaxplaces"
+          name="ccMaxplaces">
+      </mat-form-field>
+      <button mat-flat-button	 color="warn">Save Changes</button>
+    </form>
+
+
+
+

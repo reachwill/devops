@@ -7,3 +7,21 @@
 .mat-list-item:nth-child(odd){
     background-color: #efefef;
 }
+
+.mat-list-item a.spaced{
+    margin: 10px 10px 0 0;
+    border-radius: 3px;
+    padding: 8px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+.mat-list-item a.spaced:hover{
+    box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.4); 
+}
+.mat-list-item a.danger{
+    background-color: tomato;
+}
+.mat-list-item a.no-danger{
+    background-color:yellowgreen;
+}

@@ -25,6 +25,7 @@ export class CreateCodecampEventComponent implements OnInit {
     this.codecampService.saveEvent(this.event).subscribe(returnedData => {
       console.log(returnedData);
       this.openSnackBar('Event Created', 'Success');
+      this.event = new CodecampEvent();
     });
   }
 

@@ -23,10 +23,15 @@
         <mat-icon color="warn">location_on</mat-icon> <span class="align-right">{{event.ccVenue}}</span>
       </mat-list-item>
       <mat-list-item role="listitem">
-        <mat-icon color="warn">date_range</mat-icon> <span class="align-right">{{event.ccDate | date:'mediumDate'}}</span>
+        <mat-icon color="warn">date_range</mat-icon> <span
+          class="align-right">{{event.ccDate | date:'mediumDate'}}</span>
       </mat-list-item>
       <mat-list-item role="listitem">
         <mat-icon color="warn">people</mat-icon> <span class="align-right">{{event.ccMaxplaces}}</span>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <a class="list-group-item list-group-item-action spaced no-danger" [routerLink]="['/editcodecamp', event.ccId]">Edit Event</a>
+        <a class="list-group-item list-group-item-action spaced danger" (click)="deleteEvent(event.ccId)">Delete Event</a>
       </mat-list-item>
     </mat-list>
 

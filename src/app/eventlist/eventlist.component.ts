@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CodecampService } from '../services/codecamp.service';
-import {DatePipe} from '@angular/common';
+import { CodecampEvent } from '../event';
 
 @Component({
   selector: 'app-eventlist',
@@ -8,7 +8,8 @@ import {DatePipe} from '@angular/common';
   styleUrls: ['./eventlist.component.css']
 })
 export class EventlistComponent implements OnInit {
-  codecampEvents;
+  codecampEvents: CodecampEvent[];
+
   constructor(private codecampService: CodecampService) {}
 
   ngOnInit() {
@@ -17,7 +18,12 @@ export class EventlistComponent implements OnInit {
 
   getEvents(): void {
     this.codecampService.getEvents().subscribe(events => this.codecampEvents = events);
-    console.log(this.codecampEvents);
+  }
+
+  deleteEvent(ccId: any): void {
+    if (confirm('Are you sure?')) {
+      this.codecampService.deleteEvent(ccId).subscribe(events => console.log(events));
+    }
   }
 
 }

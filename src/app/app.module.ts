@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,11 +13,14 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { EventlistComponent } from './eventlist/eventlist.component';
+import { EditCodecampEventComponent } from './edit-codecamp-event/edit-codecamp-event.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     CreateCodecampEventComponent,
-    EventlistComponent
+    EventlistComponent,
+    EditCodecampEventComponent
   ],
   imports: [
     BrowserModule,
