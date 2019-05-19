@@ -32,10 +32,18 @@ export class EditCodecampEventComponent implements OnInit {
       this.codecampService.getEvents().subscribe((events) => {
         this.codecampEvents = events;
         this.event = (events.filter((e) => {
-          return e.ccId === Number(params.id);
+          return e.campId === Number(params.id);
         })[0]);
       });
     });
+    console.log(this.event.eventDate);
+    this.addTestTalk();
+    
+  }
+
+  addTestTalk(): void{
+    this.event.talks.push({title:'Test Talk',speaker:{firstName:'Will',lastName:'Test'}});
+    console.log(this.event);
   }
 
   onSubmit() {
@@ -52,5 +60,9 @@ export class EditCodecampEventComponent implements OnInit {
     });
   }
 
+  dateChanged(ccDateInput) {
+    const d = new Date(ccDateInput.value);
+    ccDateInput.value = `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
+  }
 
 }

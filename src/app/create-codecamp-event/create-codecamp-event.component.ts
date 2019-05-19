@@ -39,4 +39,9 @@ export class CreateCodecampEventComponent implements OnInit {
       duration: 2000,
     });
   }
+
+  dateChanged(ccDateInput) {
+    const d = new Date(ccDateInput.value);
+    ccDateInput.value = `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
+  }
 }

@@ -23,9 +23,9 @@ export class EventlistComponent implements OnInit {
     this.codecampService.getEvents().subscribe(events => this.codecampEvents = events);
   }
 
-  deleteEvent(ccId: any): void {
+  deleteEvent(campId: any): void {
     if (confirm('Are you sure?')) {
-      this.codecampService.deleteEvent(ccId).subscribe(events => console.log(events));
+      this.codecampService.deleteEvent(campId).subscribe(events => console.log(events));
     }
   }
 

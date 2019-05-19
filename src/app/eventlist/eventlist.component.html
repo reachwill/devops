@@ -16,22 +16,37 @@
 
   <mat-expansion-panel *ngFor="let event of codecampEvents">
     <mat-expansion-panel-header>
-      {{event.ccTitle}}
+      {{event.name}}
     </mat-expansion-panel-header>
     <mat-list role="list">
       <mat-list-item role="listitem">
-        <mat-icon color="warn">location_on</mat-icon> <span class="align-right">{{event.ccVenue}}</span>
+        <mat-icon color="warn">location_on</mat-icon> <span class="align-right">{{event.venue}}</span>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <mat-icon color="warn">access_time</mat-icon> <span class="align-right">{{event.duration}} hr<span *ngIf="event.duration > 1">s</span></span>
       </mat-list-item>
       <mat-list-item role="listitem">
         <mat-icon color="warn">date_range</mat-icon> <span
-          class="align-right">{{event.ccDate | date:'mediumDate'}}</span>
+          class="align-right">{{event.eventDate | date:'mediumDate'}}</span>
       </mat-list-item>
-      <mat-list-item role="listitem">
-        <mat-icon color="warn">people</mat-icon> <span class="align-right">{{event.ccMaxplaces}}</span>
-      </mat-list-item>
+      <div style="background:#efefef;padding:10px;"  *ngIf="event.talks!=undefined">
+        <h3>Talks</h3>
+        <ng-container *ngFor="let talk of event.talks">
+          <mat-list-item role="listitem">
+              <mat-list>
+                <mat-list-item>
+                  <dl>
+                    <dt>{{talk.title}}</dt>
+                    <dd style="font-size: 0.75em;">{{talk.speaker.firstName}} {{talk.speaker.lastName}}</dd>
+                  </dl> 
+                </mat-list-item>
+              </mat-list>
+          </mat-list-item>
+        </ng-container>
+      </div>
       <mat-list-item role="listitem" *ngIf="codecampService.admin">
-        <a class="list-group-item list-group-item-action spaced no-danger" [routerLink]="['/editcodecamp', event.ccId]">Edit Event</a>
-        <a class="list-group-item list-group-item-action spaced danger" (click)="deleteEvent(event.ccId)">Delete Event</a>
+        <a class="list-group-item list-group-item-action spaced no-danger" [routerLink]="['/editcodecamp', event.campId]">Edit Event</a>
+        <a class="list-group-item list-group-item-action spaced danger" (click)="deleteEvent(event.campId)">Delete Event</a>
       </mat-list-item>
     </mat-list>
 

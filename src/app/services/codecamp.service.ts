@@ -8,7 +8,7 @@ import { Observable, of } from 'rxjs';
 })
 export class CodecampService {
 
-  admin = false;
+  public admin = false;
 
   constructor() { }
 
@@ -17,14 +17,14 @@ export class CodecampService {
   }
 
   saveEvent(event: CodecampEvent): Observable<any> {
-    event.ccId = new Date().getTime();
+    event.campId = new Date().getTime();
     Events.push(event);
     return of(Events);
   }
 
   updateEvent(event: CodecampEvent): Observable<any> {
     for ( let e of Events ) {
-      if (e.ccId === event.ccId) {
+      if (e.campId === event.campId) {
         e = event;
       }
     }
@@ -32,10 +32,11 @@ export class CodecampService {
   }
   deleteEvent(event: CodecampEvent): Observable<any> {
     for ( let i = 0 ; i < Events.length ; i++ ) {
-      if (Events[i].ccId === event) {
+      if (Events[i].campId === event) {
         Events.splice(i, 1);
       }
     }
     return of(Events);
   }
+
 }

@@ -4,9 +4,9 @@
     text-align: right;
 }
 
-.mat-list-item:nth-child(odd){
+/* .mat-list-item:nth-child(odd){
     background-color: #efefef;
-}
+} */
 
 .mat-list-item a.spaced{
     margin: 10px 10px 0 0;

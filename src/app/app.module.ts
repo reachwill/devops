@@ -13,6 +13,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material';
 import { EventlistComponent } from './eventlist/eventlist.component';
 import { EditCodecampEventComponent } from './edit-codecamp-event/edit-codecamp-event.component';
 
@@ -36,10 +38,12 @@ import { EditCodecampEventComponent } from './edit-codecamp-event/edit-codecamp-
     MatExpansionModule,
     MatSlideToggleModule,
     BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

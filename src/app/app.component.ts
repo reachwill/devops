@@ -8,9 +8,11 @@ import {CodecampService} from './services/codecamp.service';
 })
 export class AppComponent {
   title = 'codecamp';
-  admin = true;
+  //admin = true;
   constructor(private codecampService: CodecampService) {}
+
   toggleAdmin(toggle) {
     this.codecampService.admin = toggle.checked;
   }
+
 }
