@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CodecampEvent } from '../event';
 import { Events } from './data/events';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +11,11 @@ export class CodecampService {
 
   public admin = false;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getEvents(): Observable<any> {
     return of(Events);
+   // this.http.get;
   }
 
   saveEvent(event: CodecampEvent): Observable<any> {

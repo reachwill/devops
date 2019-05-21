@@ -10,7 +10,7 @@ import {MatSnackBar} from '@angular/material';
   styleUrls: ['./create-codecamp-event.component.css']
 })
 export class CreateCodecampEventComponent implements OnInit {
-
+  // object bound to form and also object to send to http.post
   event = new CodecampEvent();
   codecampEvents;
 
