@@ -1,3 +1,5 @@
+import { Talk } from './talk';
+
 export class CodecampEvent {
   constructor(
     public campId?: number,
@@ -5,6 +7,6 @@ export class CodecampEvent {
     public venue?: string,
     public eventDate?: string,
     public duration?: number,
-    public talks?: Array<any>
+    public talks?: Array<Talk>
   ) {}
 }

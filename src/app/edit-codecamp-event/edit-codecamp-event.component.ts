@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CodecampService } from '../services/codecamp.service';
 import { CodecampEvent } from '../event';
 import { MatSnackBar } from '@angular/material';
+import { Talk } from '../talk';
 
 @Component({
   selector: 'app-edit-codecamp-event',
@@ -13,6 +14,7 @@ export class EditCodecampEventComponent implements OnInit {
   sub: any;
   codecampEvents;
   event = new CodecampEvent();
+  talk = new Talk();
 
   constructor(private codecampService: CodecampService, private route: ActivatedRoute, private snackBar: MatSnackBar) {}
 
@@ -25,13 +27,16 @@ export class EditCodecampEventComponent implements OnInit {
         })[0]);
       });
     });
-    console.log(this.event.eventDate);
-    this.addTestTalk();
+    console.log(this.event);
+    this.addTestTalk('Test talk', 'Will', 'Gregory');
 
   }
 
-  addTestTalk(): void{
-    this.event.talks.push({title:'Test Talk',speaker:{firstName:'Will',lastName:'Test'}});
+  addTestTalk(title: string, firstName: string, lastName: string): void{
+    // this.talk.title = title;
+    // this.talk.speaker.firstName = firstName;
+    // this.talk.speaker.lastName = lastName;
+    this.event.talks.push({title: 'Talk Title', speaker: {firstName: 'Will', lastName: 'Test'}});
     console.log(this.event);
   }
 
