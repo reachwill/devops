@@ -1,20 +1,8 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
-import {
-  ActivatedRoute
-} from '@angular/router';
-import {
-  CodecampService
-} from '../services/codecamp.service';
-import {
-  CodecampEvent
-} from '../event';
-
-import {
-  MatSnackBar
-} from '@angular/material';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CodecampService } from '../services/codecamp.service';
+import { CodecampEvent } from '../event';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-edit-codecamp-event',
@@ -25,6 +13,7 @@ export class EditCodecampEventComponent implements OnInit {
   sub: any;
   codecampEvents;
   event = new CodecampEvent();
+
   constructor(private codecampService: CodecampService, private route: ActivatedRoute, private snackBar: MatSnackBar) {}
 
   ngOnInit() {
@@ -38,7 +27,7 @@ export class EditCodecampEventComponent implements OnInit {
     });
     console.log(this.event.eventDate);
     this.addTestTalk();
-    
+
   }
 
   addTestTalk(): void{

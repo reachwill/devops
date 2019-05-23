@@ -19,7 +19,7 @@ export class CodecampService {
   }
 
   saveEvent(event: CodecampEvent): Observable<any> {
-    event.campId = new Date().getTime();
+    event.campId = Number(new Date().getTime());
     Events.push(event);
     return of(Events);
   }

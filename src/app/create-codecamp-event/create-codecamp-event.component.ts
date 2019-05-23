@@ -12,7 +12,7 @@ import {MatSnackBar} from '@angular/material';
 export class CreateCodecampEventComponent implements OnInit {
   // object bound to form and also object to send to http.post
   event = new CodecampEvent();
-  codecampEvents;
+  codecampEvents: CodecampEvent[];
 
   constructor(private codecampService: CodecampService, private snackBar: MatSnackBar) { }
 
@@ -25,7 +25,7 @@ export class CreateCodecampEventComponent implements OnInit {
     this.codecampService.saveEvent(this.event).subscribe(returnedData => {
       console.log(returnedData);
       this.openSnackBar('Event Created', 'Success');
-      this.event = new CodecampEvent();
+      this.event = new CodecampEvent(); // to clear the form
     });
   }
 
@@ -44,4 +44,5 @@ export class CreateCodecampEventComponent implements OnInit {
     const d = new Date(ccDateInput.value);
     ccDateInput.value = `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
   }
+
 }
