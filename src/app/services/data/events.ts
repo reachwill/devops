@@ -11,7 +11,6 @@ export const Events: CodecampEvent[] = [
             {
                 talkId: 8,
                 title: 'WEB API with EFC',
-                level: 300,
                 speaker: {
                     speakerId: 1,
                     firstName: 'Ray',
@@ -24,7 +23,6 @@ export const Events: CodecampEvent[] = [
             {
                 talkId: 9,
                 title: 'Another WEB API with EFC',
-                level: 300,
                 speaker: {
                     speakerId: 1,
                     firstName: 'Ray',
@@ -46,7 +44,6 @@ export const Events: CodecampEvent[] = [
             {
                 talkId: 8,
                 title: 'WEB API with EFC',
-                level: 300,
                 speaker: {
                     speakerId: 1,
                     firstName: 'Ray',
