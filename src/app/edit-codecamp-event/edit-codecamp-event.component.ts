@@ -4,6 +4,7 @@ import { CodecampService } from '../services/codecamp.service';
 import { CodecampEvent } from '../event';
 import { MatSnackBar } from '@angular/material';
 import { Talk } from '../talk';
+import { Speaker } from '../speaker';
 
 @Component({
   selector: 'app-edit-codecamp-event',
@@ -12,9 +13,10 @@ import { Talk } from '../talk';
 })
 export class EditCodecampEventComponent implements OnInit {
   sub: any;
-  codecampEvents;
-  event = new CodecampEvent();
-  talk = new Talk();
+  codecampEvents: CodecampEvent[];
+  event: CodecampEvent = new CodecampEvent();
+  talk: Talk = new Talk();
+  speaker: Speaker = new Speaker();
 
   constructor(private codecampService: CodecampService, private route: ActivatedRoute, private snackBar: MatSnackBar) {}
 
@@ -27,24 +29,22 @@ export class EditCodecampEventComponent implements OnInit {
         })[0]);
       });
     });
-    console.log(this.event);
-    this.addTestTalk('Test talk', 'Will', 'Gregory');
-
   }
 
-  addTestTalk(title: string, firstName: string, lastName: string): void{
-    // this.talk.title = title;
-    // this.talk.speaker.firstName = firstName;
-    // this.talk.speaker.lastName = lastName;
-    this.event.talks.push({title: 'Talk Title', speaker: {firstName: 'Will', lastName: 'Test'}});
-    console.log(this.event);
+  addTalk() {
+    this.talk.talkId = new Date().getTime();
+    this.talk.speaker = this.speaker;
+    this.event.talks.push(this.talk);
+    this.talk = new Talk();
+    this.speaker = new Speaker();
+    console.log(this.event.talks);
+    this.onSubmit();
   }
 
   onSubmit() {
     this.codecampService.updateEvent(this.event).subscribe(returnedData => {
       console.log(returnedData);
       this.openSnackBar('Event Updated', 'Success');
-      // this.event = new CodecampEvent();
     });
   }
 

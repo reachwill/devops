@@ -9,7 +9,7 @@ import { Observable, of } from 'rxjs';
 })
 export class CodecampService {
 
-  public admin = false;
+  public admin = true;
 
   constructor() { }
 

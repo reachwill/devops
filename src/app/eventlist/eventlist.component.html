@@ -29,21 +29,21 @@
         <mat-icon color="warn">date_range</mat-icon> <span
           class="align-right">{{event.eventDate | date:'mediumDate'}}</span>
       </mat-list-item>
-      <div style="background:#efefef;padding:10px;"  *ngIf="event.talks!=undefined">
-        <h3>Talks</h3>
-        <ng-container *ngFor="let talk of event.talks">
-          <mat-list-item role="listitem">
-              <mat-list>
-                <mat-list-item>
-                  <dl>
-                    <dt>{{talk.title}}</dt>
-                    <dd style="font-size: 0.75em;">{{talk.speaker.firstName}} {{talk.speaker.lastName}}</dd>
-                  </dl> 
-                </mat-list-item>
-              </mat-list>
-          </mat-list-item>
-        </ng-container>
-      </div>
+      <div class="talks-div" *ngIf="event.talks!=undefined && event.talks.length>0">
+          <h3>Talks</h3>
+          <ng-container *ngFor="let talk of event.talks">
+            <mat-list-item role="listitem">
+                <mat-list>
+                  <mat-list-item>
+                    <dl>
+                      <dt>{{talk.title}}</dt>
+                      <dd style="font-size: 0.75em;">{{talk.speaker.firstName}} {{talk.speaker.lastName}}</dd>
+                    </dl> 
+                  </mat-list-item>
+                </mat-list>
+            </mat-list-item>
+          </ng-container>
+        </div>
       <mat-list-item role="listitem" *ngIf="codecampService.admin">
         <a class="list-group-item list-group-item-action spaced no-danger" [routerLink]="['/editcodecamp', event.campId]">Edit Event</a>
         <a class="list-group-item list-group-item-action spaced danger" (click)="deleteEvent(event.campId)">Delete Event</a>

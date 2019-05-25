@@ -16,9 +16,38 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-
     <input type="number" required matInput placeholder="Duration" id="duration" [(ngModel)]="event.duration"
       name="duration">
   </mat-form-field>
-  <button mat-flat-button color="warn">Save Changes</button>
+  <div class="talks-div" *ngIf="event.talks!=undefined && event.talks.length>0">
+    <h3>Talks</h3>
+    <ng-container *ngFor="let talk of event.talks">
+      <mat-list-item role="listitem">
+          <mat-list>
+            <mat-list-item>
+              <dl>
+                <dt>{{talk.title}}</dt>
+                <dd style="font-size: 0.75em;">{{talk.speaker.firstName}} {{talk.speaker.lastName}}</dd>
+              </dl> 
+            </mat-list-item>
+          </mat-list>
+      </mat-list-item>
+    </ng-container>
+  </div>
+  <h3>Add New Talk to {{event.name}}</h3>
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="New Talk Title" id="newTalkTitle" name="newTalkTitle" [(ngModel)]="talk.title">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Speaker's First Name" id="first_name" name="first_name" [(ngModel)]="speaker.firstName">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Speaker's Last Name" id="last_name" name="last_name" [(ngModel)]="speaker.lastName">
+  </mat-form-field>
+  <button mat-flat-button color="accent" (click)="addTalk()">Add Talk to Codecamp</button>
+
+  <div style="margin-top: 10px;">
+    <button mat-flat-button color="warn" style="margin-bottom: 10px;">Save Changes</button>
+  </div>
+  
 </form>

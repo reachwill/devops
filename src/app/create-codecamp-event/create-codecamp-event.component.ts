@@ -3,6 +3,8 @@ import { CodecampEvent } from '../event';
 import { CodecampService } from '../services/codecamp.service';
 
 import {MatSnackBar} from '@angular/material';
+import { Talk } from '../talk';
+import { Speaker } from '../speaker';
 
 @Component({
   selector: 'app-create-codecamp-event',
@@ -11,7 +13,9 @@ import {MatSnackBar} from '@angular/material';
 })
 export class CreateCodecampEventComponent implements OnInit {
   // object bound to form and also object to send to http.post
-  event = new CodecampEvent();
+  event: CodecampEvent = new CodecampEvent();
+  talks: Talk[];
+  // speaker: Speaker;
   codecampEvents: CodecampEvent[];
 
   constructor(private codecampService: CodecampService, private snackBar: MatSnackBar) { }
@@ -22,6 +26,7 @@ export class CreateCodecampEventComponent implements OnInit {
 
   onSubmit() {
     console.log(this.event);
+    this.event.talks = [];
     this.codecampService.saveEvent(this.event).subscribe(returnedData => {
       console.log(returnedData);
       this.openSnackBar('Event Created', 'Success');

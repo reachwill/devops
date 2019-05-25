@@ -25,3 +25,24 @@
 .mat-list-item a.no-danger{
     background-color:yellowgreen;
 }
+
+.mat-list-base{
+    width:100%;
+}
+
+dl {
+    background: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  dt {
+    font-weight: bold;
+    margin-left: 0;
+  }
+  
+  dd {
+    margin-left: 0;
+  }

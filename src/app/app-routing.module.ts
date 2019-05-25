@@ -5,9 +5,9 @@ import { EventlistComponent } from './eventlist/eventlist.component';
 import { EditCodecampEventComponent } from './edit-codecamp-event/edit-codecamp-event.component';
 
 const routes: Routes = [
-  { path: 'create', component: CreateCodecampEventComponent },
+  { path: 'create-codecamp-event', component: CreateCodecampEventComponent },
   {
-    path: 'events', component: EventlistComponent
+    path: 'codecamp-events', component: EventlistComponent
   },
   { path: '',
     redirectTo: '/events',
