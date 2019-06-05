@@ -27,7 +27,6 @@ export const Events: CodecampEvent[] = [
                     speakerId: 1,
                     firstName: 'Ray',
                     lastName: 'Bell',
-                    middleName: null,
                     company: 'TechOps Inc',
                     companyUrl: 'http://TechOps.com'
                 }
@@ -35,20 +34,19 @@ export const Events: CodecampEvent[] = [
         ]
     },
     {
-        campId: 1,
+        campId: 3,
         name: 'Glasgow Code Camp 3',
         venue: 'Indicia Offices, Wellington Street, Glasgow',
         eventDate: '2019-04-04T00:00:00',
         duration: 2,
         talks: [
             {
-                talkId: 8,
+                talkId: 10,
                 title: 'WEB API with EFC',
                 speaker: {
                     speakerId: 1,
                     firstName: 'Ray',
                     lastName: 'Bell',
-                    middleName: null,
                     company: 'TechOps Inc',
                     companyUrl: 'http://TechOps.com'
                 }

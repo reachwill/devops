@@ -32,13 +32,37 @@ export class EditCodecampEventComponent implements OnInit {
   }
 
   addTalk() {
-    this.talk.talkId = new Date().getTime();
+    // this.talk.talkId = new Date().getTime();
     this.talk.speaker = this.speaker;
-    this.event.talks.push(this.talk);
+    //this.event.talks.push(this.talk);
+    this.codecampService.addTalk(this.event.venue, this.talk).subscribe(talk => this.getEvents());
+    //clear the form
     this.talk = new Talk();
     this.speaker = new Speaker();
-    console.log(this.event.talks);
-    this.onSubmit();
+    //this.onSubmit();
+  }
+
+  deleteTalk(talk){
+    console.log(talk.talkId);
+    this.codecampService.deleteTalk(this.event.venue, talk.talkId).subscribe(str => this.getEvents());
+  }
+
+  updateTalk(talk){
+    const newTitle = document.getElementById('talkTitle'+talk.talkId).innerHTML;
+    talk.title = newTitle; 
+    this.codecampService.updateTalk(talk, this.event.venue).subscribe(str => this.getEvents());
+  }
+
+  getEvents(): void {
+    this.codecampService.getEvents().subscribe(events => this.codecampEvents = events);
+    this.sub = this.route.params.subscribe(params => {
+      this.codecampService.getEvents().subscribe((events) => {
+        this.codecampEvents = events;
+        this.event = (events.filter((e) => {
+          return e.campId === Number(params.id);
+        })[0]);
+      });
+    });
   }
 
   onSubmit() {

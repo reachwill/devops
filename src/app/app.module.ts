@@ -17,6 +17,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material';
 import { EventlistComponent } from './eventlist/eventlist.component';
 import { EditCodecampEventComponent } from './edit-codecamp-event/edit-codecamp-event.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { EditCodecampEventComponent } from './edit-codecamp-event/edit-codecamp-
     MatDatepickerModule,
     MatNativeDateModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]

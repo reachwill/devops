@@ -1,11 +1,9 @@
 export class Speaker {
   constructor(
-    public speakerId?: number,
+    public speakerId: number = 2,
     public firstName?: string,
     public lastName?: string,
-    public middleName?: string,
-    public company?: string,
-    public companyUrl?: string,
-    // public speaker?: Speaker
+    public company: string = 'Indicia',
+    public companyUrl: string = 'indicia.com',
   ) {}
 }

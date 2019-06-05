@@ -10,7 +10,7 @@ const routes: Routes = [
     path: 'codecamp-events', component: EventlistComponent
   },
   { path: '',
-    redirectTo: '/events',
+    redirectTo: '/codecamp-events',
     pathMatch: 'full'
   },
   { path: 'editcodecamp/:id', component: EditCodecampEventComponent }

@@ -46,7 +46,7 @@
         </div>
       <mat-list-item role="listitem" *ngIf="codecampService.admin">
         <a class="list-group-item list-group-item-action spaced no-danger" [routerLink]="['/editcodecamp', event.campId]">Edit Event</a>
-        <a class="list-group-item list-group-item-action spaced danger" (click)="deleteEvent(event.campId)">Delete Event</a>
+        <a class="list-group-item list-group-item-action spaced danger" (click)="deleteEvent(event.venue)">Delete Event</a>
       </mat-list-item>
     </mat-list>
 

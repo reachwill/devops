@@ -18,3 +18,26 @@ dt {
 dd {
   margin-left: 0;
 }
+
+.delete-link{
+  float:right;
+  cursor:pointer;
+  background: rgba(255,0,0,0.5);
+  padding: 7px;
+  border-radius: 3px;
+  color: white;
+}
+.delete-link:hover{
+  background: red;
+}
+.update-link{
+  float:right;
+  cursor:pointer;
+  background: rgba(0,255,0,0.5);
+  padding: 7px;
+  border-radius: 3px;
+  color: white;
+}
+.update-link:hover{
+  background: green
+}

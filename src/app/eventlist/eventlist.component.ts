@@ -1,6 +1,33 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CodecampService } from '../services/codecamp.service';
 import { CodecampEvent } from '../event';
+// interface RootObject {
+//   CodecampEvent: CodecampEvent;
+// }
+
+// interface CodecampEvent {
+//   campId: number;
+//   name: string;
+//   venue: string;
+//   eventDate: string;
+//   duration: number;
+//   talks: Talk[];
+// }
+
+// interface Talk {
+//   talkId: number;
+//   title: string;
+//   speaker: Speaker;
+// }
+
+// interface Speaker {
+//   speakerId: number;
+//   firstName: string;
+//   lastName: string;
+//   middleName?: any;
+//   company: string;
+//   companyUrl: string;
+// }
 
 @Component({
   selector: 'app-eventlist',
@@ -23,9 +50,9 @@ export class EventlistComponent implements OnInit {
     this.codecampService.getEvents().subscribe(events => this.codecampEvents = events);
   }
 
-  deleteEvent(campId: any): void {
+  deleteEvent(venue: any): void {
     if (confirm('Are you sure?')) {
-      this.codecampService.deleteEvent(campId).subscribe(events => console.log(events));
+      this.codecampService.deleteEvent(venue).subscribe((events) => {this.getEvents(); }, (err) => {console.log(err); });
     }
   }
 
