@@ -21,6 +21,10 @@ export class EditCodecampEventComponent implements OnInit {
   constructor(private codecampService: CodecampService, private route: ActivatedRoute, private snackBar: MatSnackBar) {}
 
   ngOnInit() {
+    this.getCodecampEventByParam();
+  }
+
+  getCodecampEventByParam(){
     this.sub = this.route.params.subscribe(params => {
       this.codecampService.getEvents().subscribe((events) => {
         this.codecampEvents = events;
@@ -32,36 +36,34 @@ export class EditCodecampEventComponent implements OnInit {
   }
 
   addTalk() {
-    // this.talk.talkId = new Date().getTime();
     this.talk.speaker = this.speaker;
-    //this.event.talks.push(this.talk);
     this.codecampService.addTalk(this.event.venue, this.talk).subscribe(talk => this.getEvents());
     //clear the form
     this.talk = new Talk();
     this.speaker = new Speaker();
-    //this.onSubmit();
   }
 
   deleteTalk(talk){
     console.log(talk.talkId);
-    this.codecampService.deleteTalk(this.event.venue, talk.talkId).subscribe(str => this.getEvents());
+    this.codecampService.deleteTalk(this.event.venue, talk.talkId).subscribe((str) => {
+      this.getEvents();
+      this.openSnackBar('Talk Deleted', 'Success');
+    });
   }
 
   updateTalk(talk){
     const newTitle = document.getElementById('talkTitle'+talk.talkId).innerHTML;
     talk.title = newTitle; 
-    this.codecampService.updateTalk(talk, this.event.venue).subscribe(str => this.getEvents());
+    this.codecampService.updateTalk(talk, this.event.venue).subscribe((str) => {
+      this.getEvents();
+      this.openSnackBar('Talk Updated', 'Success');
+    });
   }
 
   getEvents(): void {
-    this.codecampService.getEvents().subscribe(events => this.codecampEvents = events);
-    this.sub = this.route.params.subscribe(params => {
-      this.codecampService.getEvents().subscribe((events) => {
-        this.codecampEvents = events;
-        this.event = (events.filter((e) => {
-          return e.campId === Number(params.id);
-        })[0]);
-      });
+    this.codecampService.getEvents().subscribe((events) => {
+      this.codecampEvents = events;
+      this.getCodecampEventByParam();
     });
   }
 
