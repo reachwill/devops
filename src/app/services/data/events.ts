@@ -15,7 +15,6 @@ export const Events: CodecampEvent[] = [
                     speakerId: 1,
                     firstName: 'Ray',
                     lastName: 'Bell',
-                    middleName: null,
                     company: 'TechOps Inc',
                     companyUrl: 'http://TechOps.com'
                 }
